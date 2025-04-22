@@ -35,7 +35,7 @@ public class Trip {
     private Payment payment;
 
     // Constructors
-    public Trip() {
+    public Trip(LocalDateTime localDateTime, String originE, String destinationE, double v) {
     }
 
     public Trip(LocalDateTime tripDate, String origin, String destination,

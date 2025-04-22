@@ -25,7 +25,7 @@ public class Rating {
     private LocalDateTime ratingDate;
 
     // Constructors
-    public Rating() {
+    public Rating(long l, String customer, int i, String s, LocalDateTime now) {
         this.ratingDate = LocalDateTime.now();
     }
 

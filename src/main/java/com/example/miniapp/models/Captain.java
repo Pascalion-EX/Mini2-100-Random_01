@@ -25,7 +25,7 @@ public class Captain {
     private List<Trip> trips = new ArrayList<>();
 
     // Constructors
-    public Captain() {
+    public Captain(String lowRating, String lr789, double v) {
     }
 
     public Captain(String name, String licenseNumber) {

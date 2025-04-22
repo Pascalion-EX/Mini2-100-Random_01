@@ -28,7 +28,7 @@ public class Payment {
     private Trip trip;
 
     // Constructors
-    public Payment() {
+    public Payment(double v, String card, boolean b) {
         this.paymentDate = LocalDateTime.now();
     }
 
