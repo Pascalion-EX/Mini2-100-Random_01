@@ -68,6 +68,7 @@ import static org.junit.jupiter.api.Assertions.*;
 }, executionPhase = ExecutionPhase.BEFORE_TEST_METHOD)
 
 class MiniApplicationTests {
+	
 
 	@Autowired
 	private RestTemplate restTemplate;
