@@ -1,21 +1,22 @@
-C:\Users\Ahmed Wael\Desktop\Mini2-100-Random_01\src\main\java\com\example\miniapp\controllers\CaptainController.java
-C:\Users\Ahmed Wael\Desktop\Mini2-100-Random_01\src\main\java\com\example\miniapp\controllers\CustomerController.java
-C:\Users\Ahmed Wael\Desktop\Mini2-100-Random_01\src\main\java\com\example\miniapp\controllers\PaymentController.java
-C:\Users\Ahmed Wael\Desktop\Mini2-100-Random_01\src\main\java\com\example\miniapp\controllers\RatingController.java
-C:\Users\Ahmed Wael\Desktop\Mini2-100-Random_01\src\main\java\com\example\miniapp\controllers\TripController.java
-C:\Users\Ahmed Wael\Desktop\Mini2-100-Random_01\src\main\java\com\example\miniapp\MiniappApplication.java
-C:\Users\Ahmed Wael\Desktop\Mini2-100-Random_01\src\main\java\com\example\miniapp\models\Captain.java
-C:\Users\Ahmed Wael\Desktop\Mini2-100-Random_01\src\main\java\com\example\miniapp\models\Customer.java
-C:\Users\Ahmed Wael\Desktop\Mini2-100-Random_01\src\main\java\com\example\miniapp\models\Payment.java
-C:\Users\Ahmed Wael\Desktop\Mini2-100-Random_01\src\main\java\com\example\miniapp\models\Rating.java
-C:\Users\Ahmed Wael\Desktop\Mini2-100-Random_01\src\main\java\com\example\miniapp\models\Trip.java
-C:\Users\Ahmed Wael\Desktop\Mini2-100-Random_01\src\main\java\com\example\miniapp\repositories\CaptainRepository.java
-C:\Users\Ahmed Wael\Desktop\Mini2-100-Random_01\src\main\java\com\example\miniapp\repositories\CustomerRepository.java
-C:\Users\Ahmed Wael\Desktop\Mini2-100-Random_01\src\main\java\com\example\miniapp\repositories\PaymentRepository.java
-C:\Users\Ahmed Wael\Desktop\Mini2-100-Random_01\src\main\java\com\example\miniapp\repositories\RatingRepository.java
-C:\Users\Ahmed Wael\Desktop\Mini2-100-Random_01\src\main\java\com\example\miniapp\repositories\TripRepository.java
-C:\Users\Ahmed Wael\Desktop\Mini2-100-Random_01\src\main\java\com\example\miniapp\services\CaptainService.java
-C:\Users\Ahmed Wael\Desktop\Mini2-100-Random_01\src\main\java\com\example\miniapp\services\CustomerService.java
-C:\Users\Ahmed Wael\Desktop\Mini2-100-Random_01\src\main\java\com\example\miniapp\services\PaymentService.java
-C:\Users\Ahmed Wael\Desktop\Mini2-100-Random_01\src\main\java\com\example\miniapp\services\RatingService.java
-C:\Users\Ahmed Wael\Desktop\Mini2-100-Random_01\src\main\java\com\example\miniapp\services\TripService.java
+C:\Users\Thinkpad\Desktop\Mini2-100-Random_01\src\main\java\scalable\mini_projects\Mini_Project2\Config.java
+C:\Users\Thinkpad\Desktop\Mini2-100-Random_01\src\main\java\scalable\mini_projects\Mini_Project2\controllers\CaptainController.java
+C:\Users\Thinkpad\Desktop\Mini2-100-Random_01\src\main\java\scalable\mini_projects\Mini_Project2\controllers\CustomerController.java
+C:\Users\Thinkpad\Desktop\Mini2-100-Random_01\src\main\java\scalable\mini_projects\Mini_Project2\controllers\PaymentController.java
+C:\Users\Thinkpad\Desktop\Mini2-100-Random_01\src\main\java\scalable\mini_projects\Mini_Project2\controllers\RatingController.java
+C:\Users\Thinkpad\Desktop\Mini2-100-Random_01\src\main\java\scalable\mini_projects\Mini_Project2\controllers\TripController.java
+C:\Users\Thinkpad\Desktop\Mini2-100-Random_01\src\main\java\scalable\mini_projects\Mini_Project2\MiniappApplication.java
+C:\Users\Thinkpad\Desktop\Mini2-100-Random_01\src\main\java\scalable\mini_projects\Mini_Project2\models\Captain.java
+C:\Users\Thinkpad\Desktop\Mini2-100-Random_01\src\main\java\scalable\mini_projects\Mini_Project2\models\Customer.java
+C:\Users\Thinkpad\Desktop\Mini2-100-Random_01\src\main\java\scalable\mini_projects\Mini_Project2\models\Payment.java
+C:\Users\Thinkpad\Desktop\Mini2-100-Random_01\src\main\java\scalable\mini_projects\Mini_Project2\models\Rating.java
+C:\Users\Thinkpad\Desktop\Mini2-100-Random_01\src\main\java\scalable\mini_projects\Mini_Project2\models\Trip.java
+C:\Users\Thinkpad\Desktop\Mini2-100-Random_01\src\main\java\scalable\mini_projects\Mini_Project2\repositories\CaptainRepository.java
+C:\Users\Thinkpad\Desktop\Mini2-100-Random_01\src\main\java\scalable\mini_projects\Mini_Project2\repositories\CustomerRepository.java
+C:\Users\Thinkpad\Desktop\Mini2-100-Random_01\src\main\java\scalable\mini_projects\Mini_Project2\repositories\PaymentRepository.java
+C:\Users\Thinkpad\Desktop\Mini2-100-Random_01\src\main\java\scalable\mini_projects\Mini_Project2\repositories\RatingRepository.java
+C:\Users\Thinkpad\Desktop\Mini2-100-Random_01\src\main\java\scalable\mini_projects\Mini_Project2\repositories\TripRepository.java
+C:\Users\Thinkpad\Desktop\Mini2-100-Random_01\src\main\java\scalable\mini_projects\Mini_Project2\services\CaptainService.java
+C:\Users\Thinkpad\Desktop\Mini2-100-Random_01\src\main\java\scalable\mini_projects\Mini_Project2\services\CustomerService.java
+C:\Users\Thinkpad\Desktop\Mini2-100-Random_01\src\main\java\scalable\mini_projects\Mini_Project2\services\PaymentService.java
+C:\Users\Thinkpad\Desktop\Mini2-100-Random_01\src\main\java\scalable\mini_projects\Mini_Project2\services\RatingService.java
+C:\Users\Thinkpad\Desktop\Mini2-100-Random_01\src\main\java\scalable\mini_projects\Mini_Project2\services\TripService.java
