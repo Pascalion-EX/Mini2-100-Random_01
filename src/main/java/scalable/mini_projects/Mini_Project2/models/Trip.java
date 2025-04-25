@@ -20,18 +20,18 @@ public class Trip {
     @Column(nullable = false)
     private String destination;
 
-    @Column(name = "trip_cost", nullable = false, precision = 10, scale = 2)
+    @Column(name = "trip_cost", nullable = false)
     private Double tripCost;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "captain_id", nullable = false)
     private Captain captain;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "customer_id", nullable = false)
     private Customer customer;
 
-    @OneToOne(mappedBy = "trip", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToOne(cascade = CascadeType.ALL)
     private Payment payment;
 
     // Constructors

@@ -12,13 +12,13 @@ public class Captain {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
+    @Column
     private String name;
 
     @Column(name = "license_number", nullable = false, unique = true)
     private String licenseNumber;
 
-    @Column(name = "avg_rating_score", precision = 3, scale = 2)
+    @Column(name = "avg_rating_score")
     private Double avgRatingScore;
 
     @OneToMany(mappedBy = "captain", cascade = CascadeType.ALL, orphanRemoval = true)

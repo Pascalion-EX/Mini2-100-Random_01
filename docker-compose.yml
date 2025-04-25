@@ -6,7 +6,7 @@ services:
     container_name: trip_postgres
     environment:
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
+      POSTGRES_PASSWORD: kero2001
       POSTGRES_DB: trip_db
     ports:
       - "5432:5432"
@@ -28,21 +28,6 @@ services:
     networks:
       - app-network
 
-  app:
-    build: .
-    container_name: trip_app
-    ports:
-      - "8080:8080"
-    depends_on:
-      - postgres
-      - mongodb
-    environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/trip_db
-      SPRING_DATASOURCE_USERNAME: postgres
-      SPRING_DATASOURCE_PASSWORD: postgres
-      SPRING_DATA_MONGODB_URI: mongodb://root:example@mongodb:27017/rating_db?authSource=admin
-    networks:
-      - app-network
 
 volumes:
   postgres_data:
