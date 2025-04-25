@@ -18,44 +18,44 @@ public class PaymentController {
         this.paymentService = paymentService;
     }
 
-    // 1. Add Payment
+    // 9.4.2.1 Add Payment
     @PostMapping("/addPayment")
-    public Payment addPayment(@RequestBody Payment payment) {
-        return paymentService.addPayment(payment);
+    public Payment addPayment(@RequestBody Payment Payment) {
+        return paymentService.addPayment(Payment);
     }
 
-    // 2. Get All Payments
+    // 9.4.2.2 Get All Payments
     @GetMapping("/allPayments")
     public List<Payment> getAllPayments() {
         return paymentService.getAllPayments();
     }
 
-    // 3. Get Specific Payment by ID
+    // 9.4.2.3 Get Specific Payment
     @GetMapping("/{id}")
     public Payment getPaymentById(@PathVariable Long id) {
         return paymentService.getPaymentById(id);
     }
 
-    // 4. Update Payment
+    // 9.4.2.4 Update Payment
     @PutMapping("/update/{id}")
-    public Payment updatePayment(@PathVariable Long id, @RequestBody Payment payment) {
-        return paymentService.updatePayment(id, payment);
+    public Payment updatePayment(@PathVariable Long id, @RequestBody Payment Payment) {
+        return paymentService.updatePayment(id, Payment);
     }
 
-    // 5. Delete Payment
+    // 9.4.2.5 Delete Payment
     @DeleteMapping("/delete/{id}")
     public String deletePayment(@PathVariable Long id) {
         paymentService.deletePayment(id);
         return "Payment with ID " + id + " deleted successfully.";
     }
 
-    // 6. Find Payments by Trip ID
+    // 9.4.2.6 Find Payments By Trip ID
     @GetMapping("/findByTripId")
     public List<Payment> findPaymentsByTripId(@RequestParam Long tripId) {
         return paymentService.findPaymentsByTripId(tripId);
     }
 
-    // 7. Find Payments with Amount Greater Than Threshold
+    // 9.4.2.7 Find Payments With an Amount Greater Than a Threshold
     @GetMapping("/findByAmountThreshold")
     public List<Payment> findPaymentsWithAmountGreaterThan(@RequestParam Double threshold) {
         return paymentService.findByAmountThreshold(threshold);

@@ -1,31 +1,17 @@
 package scalable.mini_projects.Mini_Project2.repositories;
 
-
 import scalable.mini_projects.Mini_Project2.models.Captain;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+//MA7DASH YALMES EL REPOS law fi error mesh hab2a hina
+//Please think twice 2abl mat8iar 7aga
 @Repository
 public interface CaptainRepository extends JpaRepository<Captain, Long> {
 
-    // Find by license number (exact match)
+    List<Captain> findByAvgRatingScoreGreaterThan(Double threshold);
     Captain findByLicenseNumber(String licenseNumber);
-
-    // Find all captains with average rating above threshold
-    @Query("SELECT c FROM Captain c WHERE c.avgRatingScore >= :threshold")
-    List<Captain> findAllWithRatingAbove(@Param("threshold") Double threshold);
-
-    // Alternative method using derived query
-    List<Captain> findByAvgRatingScoreGreaterThanEqual(Double threshold);
-
-    // Find by license number with case-insensitive search
-    Captain findByLicenseNumberIgnoreCase(String licenseNumber);
-
-    // Find all captains ordered by average rating (descending)
-    @Query("SELECT c FROM Captain c ORDER BY c.avgRatingScore DESC")
-    List<Captain> findAllOrderByRatingDesc();
 }

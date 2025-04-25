@@ -1,9 +1,9 @@
 package scalable.mini_projects.Mini_Project2.services;
-
-import scalable.mini_projects.Mini_Project2.models.Trip;
-import scalable.mini_projects.Mini_Project2.repositories.TripRepository;
+import scalable.mini_projects.Mini_Project2.models.*;
+import scalable.mini_projects.Mini_Project2.models.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import scalable.mini_projects.Mini_Project2.repositories.TripRepository;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -18,25 +18,21 @@ public class TripService {
         this.tripRepository = tripRepository;
     }
 
-    // 1. Add Trip
-    public Trip addTrip(Trip trip) {
-        return tripRepository.save(trip);
+    public Trip addTrip(Trip Trip) {
+        return tripRepository.save(Trip);
     }
 
-    // 2. Get all trips
     public List<Trip> getAllTrips() {
         return tripRepository.findAll();
     }
 
-    // 3. Get trip by ID
     public Trip getTripById(Long id) {
         return tripRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Trip not found with ID: " + id));
+                .orElseThrow(() -> new RuntimeException("Trip not found with ID: " + id));
     }
 
-    // 4. Update trip
     public Trip updateTrip(Long id, Trip updatedTrip) {
-        Trip existingTrip = getTripById(id); // Reuse logic
+        Trip existingTrip = getTripById(id);
         existingTrip.setTripDate(updatedTrip.getTripDate());
         existingTrip.setOrigin(updatedTrip.getOrigin());
         existingTrip.setDestination(updatedTrip.getDestination());
@@ -46,18 +42,15 @@ public class TripService {
         return tripRepository.save(existingTrip);
     }
 
-    // 5. Delete trip
     public void deleteTrip(Long id) {
-        Trip existingTrip = getTripById(id);
-        tripRepository.delete(existingTrip);
+
+        tripRepository.deleteById(id);
     }
 
-    // 6. Find trips within date range
     public List<Trip> findTripsWithinDateRange(LocalDateTime startDate, LocalDateTime endDate) {
-        return tripRepository.findTripsByDateRange(startDate, endDate);
+        return tripRepository.findByTripDateBetween(startDate, endDate);
     }
 
-    // 7. Find trips by captain ID
     public List<Trip> findTripsByCaptainId(Long captainId) {
         return tripRepository.findByCaptainId(captainId);
     }
