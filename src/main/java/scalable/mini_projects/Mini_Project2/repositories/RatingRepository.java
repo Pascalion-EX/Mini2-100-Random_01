@@ -1,10 +1,11 @@
 package scalable.mini_projects.Mini_Project2.repositories;
 
+import org.springframework.stereotype.Repository;
 import scalable.mini_projects.Mini_Project2.models.Rating;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 import java.util.List;
-
+@Repository
 public interface RatingRepository extends MongoRepository<Rating, String> {
 
     // Find ratings for specific entity (type + ID)

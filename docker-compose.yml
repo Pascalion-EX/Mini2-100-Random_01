@@ -2,31 +2,28 @@ version: '3.8'
 
 services:
   postgres:
-    image: postgres:13-alpine
-    container_name: trip_postgres
+    image: postgres:13
+    container_name: trippostdb
     environment:
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: kero2001
-      POSTGRES_DB: trip_db
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres_db
     ports:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
-    networks:
-      - app-network
+
 
   mongodb:
     image: mongo:5.0
-    container_name: trip_mongo
+    container_name: tripmogodb
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: example
+      MONGO_INITDB_ROOT_PASSWORD: kero2001
     ports:
       - "27017:27017"
     volumes:
       - mongo_data:/data/db
-    networks:
-      - app-network
 
 
 volumes:

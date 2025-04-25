@@ -1,11 +1,12 @@
 package scalable.mini_projects.Mini_Project2.repositories;
 
+import org.springframework.stereotype.Repository;
 import scalable.mini_projects.Mini_Project2.models.Payment;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import java.util.List;
-
+@Repository
 public interface PaymentRepository extends JpaRepository<Payment, Long> {
 
     // Find payment by trip ID (exact match)

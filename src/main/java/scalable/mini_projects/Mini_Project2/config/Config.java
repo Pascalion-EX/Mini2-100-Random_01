@@ -1,4 +1,4 @@
-package scalable.mini_projects.Mini_Project2;
+package scalable.mini_projects.Mini_Project2.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
