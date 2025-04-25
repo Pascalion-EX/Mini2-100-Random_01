@@ -1,5 +1,5 @@
 # Use a lightweight OpenJDK image
-FROM openjdk:21-jdk-slim
+FROM openjdk:25-ea-4-jdk-oraclelinux9
 
 # Set working directory inside container
 WORKDIR /app

@@ -1,63 +1,62 @@
 package scalable.mini_projects.Mini_Project2.models;
 
 import jakarta.persistence.*;
+
+
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "trips")
 public class Trip {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @Column(name = "trip_date", nullable = false)
     private LocalDateTime tripDate;
-
-    @Column(nullable = false)
     private String origin;
-
-    @Column(nullable = false)
     private String destination;
-
-    @Column(name = "trip_cost", nullable = false)
     private Double tripCost;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "captain_id", nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "captain_id")
     private Captain captain;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "customer_id", nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "customer_id")
     private Customer customer;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "trip", cascade = CascadeType.ALL)
     private Payment payment;
 
-    // Constructors
-    public Trip() {
-    }
+    public Trip() {}
 
-    public Trip(LocalDateTime tripDate, String origin, String destination,
-                Double tripCost, Captain captain, Customer customer) {
-        this.tripDate = tripDate;
+    public Trip(String origin, String destination) {
         this.origin = origin;
         this.destination = destination;
-        this.tripCost = tripCost;
-        this.captain = captain;
-        this.customer = customer;
     }
 
-    public Trip(LocalDateTime tripDate, String origin, String destination, double tripCost) {
+    public Trip(Long id, LocalDateTime tripDate, String origin, String destination, Double tripCost) {
+        this.id = id;
         this.tripDate = tripDate;
         this.origin = origin;
         this.destination = destination;
         this.tripCost = tripCost;
     }
 
-    // Getters and Setters
+    public Trip(LocalDateTime tripDate, String origin, String destination, Double tripCost) {
+        this.tripDate = tripDate;
+        this.origin = origin;
+        this.destination = destination;
+        this.tripCost = tripCost;
+    }
+
+    // masa2 el getters we el setters ya abo wael
+
     public Long getId() {
         return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public LocalDateTime getTripDate() {
@@ -96,26 +95,23 @@ public class Trip {
         return captain;
     }
 
-    public void setCaptain(Captain captain) {
-        this.captain = captain;
+    public void setCaptain(Captain Captain) {
+        this.captain = Captain;
     }
 
     public Customer getCustomer() {
         return customer;
     }
 
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
+    public void setCustomer(Customer Customer) {
+        this.customer = Customer;
     }
 
-    @Override
-    public String toString() {
-        return "Trip{" +
-                "id=" + id +
-                ", tripDate=" + tripDate +
-                ", origin='" + origin + '\'' +
-                ", destination='" + destination + '\'' +
-                ", tripCost=" + tripCost +
-                '}';
+    public Payment getPayment() {
+        return payment;
+    }
+
+    public void setPayment(Payment Payment) {
+        this.payment = Payment;
     }
 }

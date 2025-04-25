@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PaymentService {
@@ -17,60 +18,38 @@ public class PaymentService {
         this.paymentRepository = paymentRepository;
     }
 
-    // 1. Add Payment
-    public Payment addPayment(Payment payment) {
-        return paymentRepository.save(payment);
+    public Payment addPayment(Payment Payment) {
+        return paymentRepository.save(Payment);
     }
 
-    // 2. Get all payments
     public List<Payment> getAllPayments() {
         return paymentRepository.findAll();
     }
 
-    // 3. Get payment by ID
     public Payment getPaymentById(Long id) {
-        return paymentRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Payment not found with ID: " + id));
+        Optional<Payment> optionalPayment = paymentRepository.findById(id);
+        return optionalPayment.orElse(null);
     }
 
-    // 4. Update payment
     public Payment updatePayment(Long id, Payment updatedPayment) {
-
-        Payment existingPayment = getPaymentById(id);
-
-        existingPayment.setAmount(updatedPayment.getAmount());
-
-        existingPayment.setPaymentMethod(updatedPayment.getPaymentMethod());
-
-        existingPayment.setPaymentStatus(updatedPayment.getPaymentStatus());
-
-        existingPayment.setPaymentDate(updatedPayment.getPaymentDate());
-
-        return paymentRepository.save(existingPayment);
+        return paymentRepository.findById(id).map(Payment -> {
+            Payment.setAmount(updatedPayment.getAmount());
+            Payment.setPaymentMethod(updatedPayment.getPaymentMethod());
+            Payment.setPaymentStatus(updatedPayment.getPaymentStatus());
+            Payment.setTrip(updatedPayment.getTrip());
+            return paymentRepository.save(Payment);
+        }).orElse(null);
     }
 
-    // 5. Delete payment
     public void deletePayment(Long id) {
-        Payment payment = getPaymentById(id);
-
-        paymentRepository.delete(payment);
+        paymentRepository.deleteById(id);
     }
 
-    // 6. Find payments by trip ID
     public List<Payment> findPaymentsByTripId(Long tripId) {
-
-        Payment payment = paymentRepository.findByTripId(tripId);
-
-        if (payment != null) {
-            return List.of(payment);
-        } else {
-            return List.of();
-        }
+        return paymentRepository.findByTripId(tripId);
     }
 
-
-    // 7. Find payments with amount above threshold
     public List<Payment> findByAmountThreshold(Double threshold) {
-        return paymentRepository.findPaymentsAboveAmount(threshold);
+        return paymentRepository.findByAmountGreaterThan(threshold);
     }
 }

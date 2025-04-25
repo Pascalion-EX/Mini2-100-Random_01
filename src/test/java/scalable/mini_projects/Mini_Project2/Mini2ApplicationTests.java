@@ -1,16 +1,12 @@
 package scalable.mini_projects.Mini_Project2;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
-import scalable.mini_projects.Mini_Project2.config.Config;
 import org.springframework.beans.factory.annotation.Value;
 import scalable.mini_projects.Mini_Project2.models.*;
 import scalable.mini_projects.Mini_Project2.repositories.*;
 import scalable.mini_projects.Mini_Project2.services.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.dao.InvalidDataAccessApiUsageException;
 import org.springframework.http.*;
@@ -106,19 +102,19 @@ class Mini2ApplicationTests {
 	private final String BASE_URL_TRIP = "http://localhost:8080/trip";
 	private final String BASE_URL_RATING = "http://localhost:8080/rating";
 
-	@Value("${scalable.mini_projects.Mini_Project2.models.Captain }")
+	@Value("${ModelsPath.Captain}")
 	String CaptainPath;
 
-	@Value("${scalable.mini_projects.Mini_Project2.models.Customer}")
+	@Value("${ModelsPath.Customer}")
 	String CustomerPath;
 
-	@Value("${scalable.mini_projects.Mini_Project2.models.Payment}")
+	@Value("${ModelsPath.Payment}")
 	String PaymentPath;
 
-	@Value("${scalable.mini_projects.Mini_Project2.models.Rating}")
+	@Value("${ModelsPath.Rating}")
 	String RatingPath;
 
-	@Value("${scalable.mini_projects.Mini_Project2.models.Trip}")
+	@Value("${ModelsPath.Trip}")
 	String TripPath;
 
 	@BeforeEach
@@ -782,35 +778,4 @@ class Mini2ApplicationTests {
 		assertTrue(customers.size()==2);
 	}
 
-    public CustomerRepository getCustomerRepository() {
-        return customerRepository;
-    }
-
-    public void setCustomerRepository(CustomerRepository customerRepository) {
-        this.customerRepository = customerRepository;
-    }
-
-    public CaptainRepository getCaptainRepository() {
-        return captainRepository;
-    }
-
-    public void setCaptainRepository(CaptainRepository captainRepository) {
-        this.captainRepository = captainRepository;
-    }
-
-    public PaymentRepository getPaymentRepository() {
-        return paymentRepository;
-    }
-
-    public void setPaymentRepository(PaymentRepository paymentRepository) {
-        this.paymentRepository = paymentRepository;
-    }
-
-    public TripRepository getTripRepository() {
-        return tripRepository;
-    }
-
-    public void setTripRepository(TripRepository tripRepository) {
-        this.tripRepository = tripRepository;
-    }
 }

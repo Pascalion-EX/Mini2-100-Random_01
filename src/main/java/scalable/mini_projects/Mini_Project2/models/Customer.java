@@ -1,29 +1,37 @@
 package scalable.mini_projects.Mini_Project2.models;
 
 import jakarta.persistence.*;
+
+
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Table(name = "customers")
 public class Customer {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @Column(nullable = false)
     private String name;
-
-    @Column(nullable = false, unique = true)
     private String email;
-
-    @Column(name = "phone_number", nullable = false)
     private String phoneNumber;
 
-    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "customer")
     private List<Trip> trips = new ArrayList<>();
 
+    public Customer() {}
+
+    public Customer(String name, String email) {
+        this.name = name;
+        this.email = email;
+    }
+
+    public Customer(Long id, String name, String email, String phoneNumber) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+    }
 
     public Customer(String name, String email, String phoneNumber) {
         this.name = name;
@@ -31,13 +39,13 @@ public class Customer {
         this.phoneNumber = phoneNumber;
     }
 
-    public Customer() {
-
-    }
-
-    // Getters and Setters
+    // masa2 el getters we el setters ya abo wael
     public Long getId() {
         return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -68,24 +76,7 @@ public class Customer {
         return trips;
     }
 
-    // Relationship management methods
-    public void addTrip(Trip trip) {
-        trips.add(trip);
-        trip.setCustomer(this);
-    }
-
-    public void removeTrip(Trip trip) {
-        trips.remove(trip);
-        trip.setCustomer(null);
-    }
-
-    @Override
-    public String toString() {
-        return "Customer{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", email='" + email + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                '}';
+    public void setTrips(List<Trip> Trip) {
+        this.trips = Trip;
     }
 }

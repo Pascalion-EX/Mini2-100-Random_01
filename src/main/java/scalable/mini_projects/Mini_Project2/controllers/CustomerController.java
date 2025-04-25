@@ -18,46 +18,39 @@ public class CustomerController {
         this.customerService = customerService;
     }
 
-    // 1. Add Customer
     @PostMapping("/addCustomer")
     public Customer addCustomer(@RequestBody Customer customer) {
         return customerService.addCustomer(customer);
     }
 
-    // 2. Get All Customers
     @GetMapping("/allCustomers")
     public List<Customer> getAllCustomers() {
         return customerService.getAllCustomers();
     }
 
-    // 3. Get Customer by ID
     @GetMapping("/{id}")
     public Customer getCustomerById(@PathVariable Long id) {
         return customerService.getCustomerById(id);
     }
 
-    // 4. Update Customer
     @PutMapping("/update/{id}")
     public Customer updateCustomer(@PathVariable Long id, @RequestBody Customer customer) {
         return customerService.updateCustomer(id, customer);
     }
 
-    // 5. Delete Customer
     @DeleteMapping("/delete/{id}")
     public String deleteCustomer(@PathVariable Long id) {
         customerService.deleteCustomer(id);
         return "Customer with ID " + id + " deleted successfully.";
     }
 
-    // 6. Find Customers by Email Domain
     @GetMapping("/findByEmailDomain")
     public List<Customer> findCustomersByEmailDomain(@RequestParam String domain) {
         return customerService.findCustomersByEmailDomain(domain);
     }
 
-    // 7. Find Customers by Phone Prefix
     @GetMapping("/findByPhonePrefix")
     public List<Customer> findCustomersByPhonePrefix(@RequestParam String prefix) {
-        return customerService.findCustomersByPhonePrefix(prefix);
+        return customerService.findCustomersByPhoneNumberStartingWith(prefix);
     }
 }

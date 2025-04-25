@@ -1,54 +1,49 @@
 package scalable.mini_projects.Mini_Project2.models;
 
 import jakarta.persistence.*;
-import java.time.LocalDateTime;
+
 
 @Entity
 @Table(name = "payments")
 public class Payment {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @Column(nullable = false)
     private Double amount;
-
-    @Column(name = "payment_method", nullable = false)
-    private String paymentMethod;  // "CARD", "CASH", etc.
-
-    @Column(name = "payment_status", nullable = false)
+    private String paymentMethod;
     private Boolean paymentStatus;
 
-    @Column(name = "payment_date")
-    private LocalDateTime paymentDate;
-
     @OneToOne
-    @JoinColumn(name = "trip_id", nullable = false)
+    @JoinColumn(name = "trip_id")
     private Trip trip;
 
-    public Payment(Double amount, String paymentMethod, Boolean paymentStatus, Trip trip) {
+    public Payment() {}
+
+    public Payment(Double amount, String paymentMethod) {
+        this.amount = amount;
+        this.paymentMethod = paymentMethod;
+    }
+
+    public Payment(Long id, Double amount, String paymentMethod, Boolean paymentStatus) {
+        this.id = id;
         this.amount = amount;
         this.paymentMethod = paymentMethod;
         this.paymentStatus = paymentStatus;
-        this.trip = trip;
-        this.paymentDate = LocalDateTime.now();
     }
 
-    public Payment() {
-
-    }
     public Payment(Double amount, String paymentMethod, Boolean paymentStatus) {
         this.amount = amount;
         this.paymentMethod = paymentMethod;
         this.paymentStatus = paymentStatus;
-        this.paymentDate = LocalDateTime.now();
     }
 
-
-    // Getters and Setters
+    // masa2 el getters we el setters ya abo wael
     public Long getId() {
         return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Double getAmount() {
@@ -75,40 +70,11 @@ public class Payment {
         this.paymentStatus = paymentStatus;
     }
 
-    public LocalDateTime getPaymentDate() {
-        return paymentDate;
-    }
-
-    public void setPaymentDate(LocalDateTime paymentDate) {
-        this.paymentDate = paymentDate;
-    }
-
     public Trip getTrip() {
         return trip;
     }
 
-    public void setTrip(Trip trip) {
-        this.trip = trip;
-    }
-
-    @Override
-    public String toString() {
-        return "Payment{" +
-                "id=" + id +
-                ", amount=" + amount +
-                ", paymentMethod='" + paymentMethod + '\'' +
-                ", paymentStatus=" + paymentStatus +
-                ", paymentDate=" + paymentDate +
-                '}';
-    }
-
-    // Business logic methods
-    public boolean isPaid() {
-        return Boolean.TRUE.equals(paymentStatus);
-    }
-
-    public void markAsPaid() {
-        this.paymentStatus = true;
-        this.paymentDate = LocalDateTime.now();
+    public void setTrip(Trip Trip) {
+        this.trip = Trip;
     }
 }

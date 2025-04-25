@@ -2,48 +2,50 @@ package scalable.mini_projects.Mini_Project2.models;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+
 import java.time.LocalDateTime;
 
 @Document(collection = "ratings")
 public class Rating {
-
-
-
-    public enum EntityType {
-        CAPTAIN, CUSTOMER, TRIP
-    }
-
     @Id
     private String id;
-
-    private Long entityId;  // References ID from PostgreSQL
-
-    private EntityType entityType;
-
-    private Integer score;  // Rating 1-5
-
+    private Long entityId;
+    private String entityType; // captain, customer, or trip
+    private Integer score;     // (1–5)
     private String comment;
-
     private LocalDateTime ratingDate;
 
-    public Rating(long entityId, String customer, int score, String comment, LocalDateTime now) {
-        this.entityId = entityId;
-        this.entityType = EntityType.CUSTOMER;
+    public Rating() {}
+
+    public Rating(String entityType, Integer score) {
+        this.entityType = entityType;
         this.score = score;
-        this.comment = comment;
-        this.ratingDate = now;
     }
-    public Rating(Long entityId, EntityType entityType, Integer score, String comment) {
+
+    public Rating(String id, Long entityId, String entityType, Integer score, String comment, LocalDateTime ratingDate) {
+        this.id = id;
         this.entityId = entityId;
         this.entityType = entityType;
         this.score = score;
         this.comment = comment;
-        this.ratingDate = LocalDateTime.now();
+        this.ratingDate = ratingDate;
     }
 
-    // Getters and Setters
+    public Rating(Long entityId, String entityType, Integer score, String comment, LocalDateTime ratingDate) {
+        this.entityId = entityId;
+        this.entityType = entityType;
+        this.score = score;
+        this.comment = comment;
+        this.ratingDate = ratingDate;
+    }
+
+    // masa2 el getters we el setters ya abo wael
     public String getId() {
         return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public Long getEntityId() {
@@ -54,11 +56,11 @@ public class Rating {
         this.entityId = entityId;
     }
 
-    public EntityType getEntityType() {
+    public String getEntityType() {
         return entityType;
     }
 
-    public void setEntityType(EntityType entityType) {
+    public void setEntityType(String entityType) {
         this.entityType = entityType;
     }
 
@@ -84,21 +86,5 @@ public class Rating {
 
     public void setRatingDate(LocalDateTime ratingDate) {
         this.ratingDate = ratingDate;
-    }
-
-    // Validation method
-    public boolean isValidScore() {
-        return score != null && score >= 1 && score <= 5;
-    }
-
-    @Override
-    public String toString() {
-        return "Rating{" +
-                "id='" + id + '\'' +
-                ", entityId=" + entityId +
-                ", entityType=" + entityType +
-                ", score=" + score +
-                ", ratingDate=" + ratingDate +
-                '}';
     }
 }

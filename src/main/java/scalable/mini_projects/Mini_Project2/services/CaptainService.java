@@ -17,29 +17,25 @@ public class CaptainService {
         this.captainRepository = captainRepository;
     }
 
-    // 1. Add Captain
-    public Captain addCaptain(Captain captain) {
-        return captainRepository.save(captain);
+    public Captain addCaptain(Captain Captain) {
+        return captainRepository.save(Captain);
     }
 
-    // 2. Get all captains
     public List<Captain> getAllCaptains() {
         return captainRepository.findAll();
     }
 
-    // 3. Get captain by ID
     public Captain getCaptainById(Long id) {
         return captainRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Captain not found with ID: " + id));
+                .orElseThrow(() -> new RuntimeException("Captain not found with ID: " + id));
     }
 
-    // 4. Get captains by rating threshold
     public List<Captain> getCaptainsByRating(Double ratingThreshold) {
-        return captainRepository.findByAvgRatingScoreGreaterThanEqual(ratingThreshold);
+        return captainRepository.findByAvgRatingScoreGreaterThan(ratingThreshold);
     }
 
-    // 5. Get captain by license number
     public Captain getCaptainByLicenseNumber(String licenseNumber) {
         return captainRepository.findByLicenseNumber(licenseNumber);
+
     }
 }
